@@ -11,7 +11,8 @@ It's a Golang version of my old project [Brainfuck bytecode](https://github.com/
 00 00 00 00
 ```
 
-### Content
+### Instructions
+#### Single-byte Instructions
 Commands(Standard Brainfuck Commands - start with `0x1`):<br>
 ```
 18: bf_output(.)
@@ -23,13 +24,26 @@ Commands(Standard Brainfuck Commands - start with `0x1`):<br>
 1E: bf_flag([)
 1F: bf_jnz(])
 ```
-and I also provides some additional bytecodes that not included in the Standard Brainfuck Commands, they're start with "EBF_" in the source code(src/vm/main.cpp). They are reserved but if you want to compile your own programming language into the brainfuck bytecode, you can use them. Also I MAY provide a compiler with extended brainfuck supporting. If I do so, here are the commands(Please check the source code by yourself to see the bytecode form):
+Extended Brainfuck Commands: 
 ```
-? - give a random number to the current pointed memory.
-x - Exit the program.
-v - Push the value in the current pointed memory to the stack.
-^ - Pop the value from stack to the current pointed memory.
-@ - Call a function that the position is the content in the current pointed memory.
-~ - Return the from the function.
+20 - give a random number to the current pointed memory.
+21 - Exit the program.
+24 - Push the value in the current pointed memory to the stack.
+25 - Pop the value from stack to the current pointed memory.
+22 - Call a function that the position is the content in the current pointed memory.
+23 - Return the from the function.
 ```
+Debug Commands:
+```
+30 - Set a breakpoint to show some messages about the vm.
+```
+#### Multi-byte commands (Coming soon)
 
+Multi-byte commands are all in the follow format:
+```
+E0 [length(Excluding E0 and the byte comes after E0):byte] [...instruction content&arguments]
+```
+For example:
+```
+E0 02 00 00
+```
