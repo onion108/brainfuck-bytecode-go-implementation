@@ -22,4 +22,11 @@ const (
 	VMNopInstruction          = 0x00
 
 	VMDebugInstructionBreakpoint = 0x30
+
+	VMMultibytePrefix = 0xE0
+	VMMultibyteAdd    = 0x1A
+	VMMultibyteSub    = 0x1B
+	VMMultibyteAssign = 0x1C
+	VMMultibyteJmpB   = 0x1D
+	VMMultibyteJmpI   = 0x1E
 )

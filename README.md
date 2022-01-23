@@ -37,7 +37,7 @@ Debug Commands:
 ```
 30 - Set a breakpoint to show some messages about the vm.
 ```
-#### Multi-byte commands (Coming soon)
+#### Multi-byte commands (Doing)
 
 Multi-byte commands are all in the follow format:
 ```
@@ -47,3 +47,7 @@ For example:
 ```
 E0 02 00 00
 ```
+
+There are the multi-byte commands that have done:<br>
+`1A [Byte]` which means to add the `[Byte]` to the current pointed memory.<br>
+`1B [Byte]` which means to decrease `[Byte]` from the current pointed memory.
